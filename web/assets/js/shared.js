@@ -122,7 +122,6 @@
   }
 
   var NAV_LINKS = [
-    { href: "index.html", label: "Главная" },
     { href: "catalog.html", label: "Каталог мест" },
     { href: "routes.html", label: "Готовые маршруты" },
     { href: "builder.html", label: "Конструктор маршрута" },
@@ -139,8 +138,9 @@
       );
     }).join("");
 
+    var feedbackActive = page === "about.html" ? " active" : "";
     var html =
-      '<div class="header-inner container">' +
+      '<div class="header-inner">' +
       '<a class="brand" href="index.html">По местам Достоевского</a>' +
       '<nav class="site-nav">' + navHtml + "</nav>" +
       '<div class="header-actions">' +
@@ -148,7 +148,7 @@
       '<input type="text" id="global-search-input" placeholder="Поиск места или адреса…" autocomplete="off">' +
       '<div class="search-results" id="global-search-results"></div>' +
       "</div>" +
-      '<button class="btn-random" id="random-place-btn" type="button">🎲 Случайное место</button>' +
+      '<a class="feedback-link' + feedbackActive + '" href="about.html">Обратная<br>связь</a>' +
       "</div>" +
       "</div>";
 
@@ -166,15 +166,6 @@
       "</div>";
     var footer = document.getElementById("site-footer");
     if (footer) footer.innerHTML = html;
-  }
-
-  function wireRandomButton() {
-    var btn = document.getElementById("random-place-btn");
-    if (!btn) return;
-    btn.addEventListener("click", function () {
-      var p = randomPlace();
-      if (p) window.location.href = "place.html?id=" + encodeURIComponent(p.id);
-    });
   }
 
   function wireGlobalSearch() {
@@ -229,7 +220,6 @@
   function init() {
     renderHeader();
     renderFooter();
-    wireRandomButton();
     wireGlobalSearch();
   }
 

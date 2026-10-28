@@ -202,18 +202,23 @@ img {
 .site-header .header-inner {
   display: flex;
   align-items: center;
-  gap: 24px;
-  padding: 16px 24px;
+  gap: 16px;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 22px 48px 22px 14px;
   flex-wrap: wrap;
+  box-sizing: border-box;
 }
 
 .site-header .brand {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 1.55rem;
   color: var(--bg-cream);
   white-space: nowrap;
   flex-shrink: 0;
+  margin-right: 6px;
 }
 
 .site-header .brand:hover {
@@ -223,15 +228,15 @@ img {
 
 .site-nav {
   display: flex;
-  gap: 4px;
+  gap: 2px;
   flex-wrap: wrap;
   flex: 1;
 }
 
 .site-nav a {
   color: var(--bg-cream-soft);
-  font-size: 0.95rem;
-  padding: 8px 12px;
+  font-size: 1.18rem;
+  padding: 10px 12px;
   border-radius: var(--radius);
   white-space: nowrap;
   position: relative;
@@ -264,19 +269,31 @@ img {
   flex-shrink: 0;
 }
 
-.btn-random {
-  background: transparent;
-  border: 1px solid var(--gold);
+.feedback-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.15;
+  text-align: center;
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   color: var(--gold-soft);
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  padding: 7px 14px;
-  border-radius: 999px;
-  cursor: pointer;
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 9px 16px;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.btn-random:hover {
+.feedback-link:hover {
+  text-decoration: none;
+  background: var(--gold);
+  color: var(--maroon-dark);
+}
+
+.feedback-link.active {
   background: var(--gold);
   color: var(--maroon-dark);
 }
@@ -284,18 +301,19 @@ img {
 /* --- Глобальный поиск --- */
 .search-box {
   position: relative;
-  min-width: 220px;
+  width: 240px;
+  flex-shrink: 0;
 }
 
 .search-box input {
   width: 100%;
-  padding: 8px 12px;
+  padding: 10px 16px;
   border-radius: 999px;
   border: 1px solid var(--maroon-soft);
   background: rgba(255, 255, 255, 0.08);
   color: #fff;
   font-family: var(--font-body);
-  font-size: 0.92rem;
+  font-size: 1.02rem;
 }
 
 .search-box input::placeholder {
@@ -685,10 +703,14 @@ select.theme-select {
   margin-bottom: 18px;
 }
 
+.container-wide {
+  max-width: 1320px;
+}
+
 .place-detail {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 36px;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
   align-items: start;
 }
 
@@ -775,7 +797,7 @@ blockquote.quote-block {
 
 .map-canvas {
   width: 100%;
-  height: 320px;
+  height: 420px;
   background: var(--bg-cream-soft);
 }
 
@@ -1044,6 +1066,98 @@ blockquote.quote-block {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+
+/* ==================== О НАС / ОБРАТНАЯ СВЯЗЬ ==================== */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  margin: 32px 0 8px;
+}
+
+.team-card {
+  background: var(--paper);
+  border: 1px solid var(--gray-faint);
+  border-radius: var(--radius);
+  padding: 22px 18px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+}
+
+.team-card:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.team-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--maroon-dark);
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.team-role {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.78rem;
+}
+
+.feedback-section h2 {
+  margin-bottom: 8px;
+}
+
+.feedback-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  max-width: 560px;
+  margin-top: 18px;
+}
+
+.feedback-textarea {
+  flex: 1;
+  resize: vertical;
+  min-height: 48px;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-light);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+}
+
+.feedback-textarea:focus {
+  outline: none;
+  border-color: var(--maroon-soft);
+}
+
+.feedback-submit {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  background: var(--maroon);
+  color: var(--gold-soft);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feedback-submit:hover {
+  background: var(--gold);
+  color: var(--maroon-dark);
+}
+
+.feedback-confirm {
+  margin-top: 14px;
+  color: var(--maroon);
+  font-style: italic;
 }
 
 /* ==================== УТИЛИТЫ ==================== */
