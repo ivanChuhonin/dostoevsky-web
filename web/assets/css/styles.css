@@ -180,7 +180,7 @@ img {
   overflow: hidden;
 }
 
-.page-head > *:not(.page-sketch) {
+.page-head > *:not(.page-sketch):not(.page-banner-sketch) {
   position: relative;
   z-index: 1;
 }
@@ -189,6 +189,84 @@ img {
   .page-sketch {
     width: 120px;
     opacity: 0.14;
+  }
+}
+
+/* Широкая фото-подложка в духе hero-sketch, но для фотографии (не гравюры) —
+   края затухают в прозрачность прямо в самом файле, тут только центрирование/тон. */
+.page-head-banner {
+  padding-top: 14px;
+  padding-bottom: 20px;
+}
+
+.page-banner-sketch {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(640px, 86%);
+  height: auto;
+  opacity: 0.26;
+  pointer-events: none;
+  z-index: 0;
+  filter: sepia(30%) saturate(130%) hue-rotate(-18deg) brightness(0.8);
+}
+
+@media (max-width: 700px) {
+  .page-banner-sketch {
+    width: min(420px, 92%);
+    opacity: 0.18;
+  }
+}
+
+/* ==================== КАТАЛОГ: ШАПКА С КАРТИНКОЙ ==================== */
+.catalog-head-row {
+  display: flex;
+  gap: 32px;
+  align-items: stretch;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--gray-faint);
+}
+
+.catalog-head-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.catalog-head-text .page-head {
+  overflow: visible;
+}
+
+.catalog-head-text .filters-bar {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.catalog-head-image {
+  flex: 0 0 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.catalog-head-image img {
+  width: 100%;
+  height: 100%;
+  max-height: 360px;
+  object-fit: contain;
+  filter: sepia(20%) saturate(115%) hue-rotate(-12deg);
+}
+
+@media (max-width: 860px) {
+  .catalog-head-row {
+    flex-direction: column;
+  }
+  .catalog-head-image {
+    flex-basis: auto;
+    max-width: 320px;
+    margin: 0 auto;
   }
 }
 
@@ -750,7 +828,8 @@ select.theme-select {
   color: var(--ink);
 }
 
-.lead-text {
+.lead-text,
+.lead-text-plain {
   font-size: 1.05rem;
 }
 
@@ -760,9 +839,9 @@ select.theme-select {
   font-size: 2.6em;
   color: var(--maroon);
   float: left;
-  line-height: 0.85;
-  padding-right: 6px;
-  padding-top: 2px;
+  line-height: 1;
+  padding-right: 1px;
+  margin-top: -0.385em;
 }
 
 blockquote.quote-block {

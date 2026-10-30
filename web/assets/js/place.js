@@ -38,18 +38,31 @@
     return items.filter(Boolean).join("");
   }
 
+  /* Буквица (::first-letter) не отличает первую букву слова от предлога-одиночки
+     ("В этом доме..."). Если первое слово состоит из одной буквы, увеличенную
+     первую букву не ставим — иначе предлог визуально склеивается со следующим словом. */
+  function leadParagraphClass(text) {
+    var match = (text || "").trim().match(/^(\S+)/);
+    var firstWord = match ? match[1].replace(/^[«"'(—–-]+/, "") : "";
+    return firstWord.length <= 1 ? "lead-text-plain" : "lead-text";
+  }
+
+  function leadParagraph(text) {
+    return '<p class="' + leadParagraphClass(text) + '">' + Site.nl2br(text) + "</p>";
+  }
+
   function buildBody(place) {
     var parts = [];
     if (place.type === "life") {
       if (place.event) parts.push('<p><strong>📖 Событие:</strong> ' + Site.nl2br(place.event) + "</p>");
-      if (place.description) parts.push('<p class="lead-text">' + Site.nl2br(place.description) + "</p>");
+      if (place.description) parts.push(leadParagraph(place.description));
       if (place.quote) parts.push('<blockquote class="quote-block">' + Site.nl2br(place.quote) + "</blockquote>");
     } else if (place.type === "work") {
-      if (place.plot_connection) parts.push('<p class="lead-text">' + Site.nl2br(place.plot_connection) + "</p>");
+      if (place.plot_connection) parts.push(leadParagraph(place.plot_connection));
       if (place.quote) parts.push('<blockquote class="quote-block">' + Site.nl2br(place.quote) + "</blockquote>");
       if (place.now_description) parts.push('<p><strong>🏛 Сейчас:</strong> ' + Site.nl2br(place.now_description) + "</p>");
     } else {
-      if (place.history) parts.push('<p class="lead-text">' + Site.nl2br(place.history) + "</p>");
+      if (place.history) parts.push(leadParagraph(place.history));
       if (place.fact) parts.push('<p><strong>✨ Интересный факт:</strong> ' + Site.nl2br(place.fact) + "</p>");
     }
     return parts.join("");
