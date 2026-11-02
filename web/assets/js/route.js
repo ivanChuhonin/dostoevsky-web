@@ -35,7 +35,7 @@
     container.innerHTML =
       '<div class="breadcrumbs"><a href="routes.html">Готовые маршруты</a> / ' + Site.escapeHtml(route.name) + "</div>" +
       '<div class="route-header">' +
-      "<h1>🗺 " + Site.escapeHtml(route.name) + "</h1>" +
+      "<h1>🗺️ " + Site.escapeHtml(route.name) + "</h1>" +
       "<p>" + Site.nl2br(route.description) + "</p>" +
       (route.durationInfo ? '<div class="route-duration">' + Site.nl2br(route.durationInfo) + "</div>" : "") +
       "</div>" +

@@ -45,30 +45,41 @@
     </span></div>
 
     <section class="feedback-section">
-      <h2>Обратная связь</h2>
-      <p style="color:var(--gray);max-width:560px">
-        Заметили неточность в тексте, нашли мёртвую ссылку на фото или хотите предложить место для гида?
-        Напишите нам — мы читаем каждое сообщение.
-      </p>
+      <div class="feedback-row">
+        <div class="feedback-col">
+          <h2>Обратная связь</h2>
+          <p style="color:var(--gray);max-width:560px">
+            Заметили неточность в тексте, нашли мёртвую ссылку на фото или хотите предложить место для гида?
+            Напишите нам — мы читаем каждое сообщение.
+          </p>
 
-      <form class="feedback-form" id="feedback-form">
-        <textarea
-          id="feedback-text"
-          class="feedback-textarea"
-          rows="4"
-          placeholder="Ваше сообщение…"
-          required
-        ></textarea>
-        <button type="submit" class="feedback-submit" id="feedback-submit" title="Отправить" aria-label="Отправить">
-          <svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true">
-            <path d="M40 8 C 24 12, 10 24, 6 42 C 14 34, 20 30, 24 28 C 20 27, 16 26, 13 26 C 18 20, 28 12, 40 8 Z"
-                  fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
-            <path d="M24 28 L 40 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
-        </button>
-      </form>
-      <p class="feedback-confirm hidden" id="feedback-confirm">✓ Сообщение отправлено. Спасибо!</p>
-      <iframe name="feedback-target" id="feedback-target" class="hidden" title="feedback-target"></iframe>
+          <form class="feedback-form" id="feedback-form">
+            <textarea
+              id="feedback-text"
+              class="feedback-textarea"
+              rows="4"
+              placeholder="Ваше сообщение…"
+              required
+            ></textarea>
+            <button type="submit" class="feedback-submit" id="feedback-submit" title="Отправить" aria-label="Отправить">
+              <svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true">
+                <path d="M40 8 C 24 12, 10 24, 6 42 C 14 34, 20 30, 24 28 C 20 27, 16 26, 13 26 C 18 20, 28 12, 40 8 Z"
+                      fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+                <path d="M24 28 L 40 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </form>
+          <p class="feedback-confirm hidden" id="feedback-confirm">✓ Сообщение отправлено. Спасибо!</p>
+          <iframe name="feedback-target" id="feedback-target" class="hidden" title="feedback-target"></iframe>
+        </div>
+
+        <div class="sponsors-col">
+          <h2>Наши спонсоры</h2>
+          <div class="sponsors-placeholder" id="sponsors-placeholder">
+            <img src="assets/images/sponsor-politekh.png" alt="Санкт-Петербургский политехнический университет Петра Великого">
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 </main>

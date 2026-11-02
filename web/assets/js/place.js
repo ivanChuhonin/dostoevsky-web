@@ -60,7 +60,7 @@
     } else if (place.type === "work") {
       if (place.plot_connection) parts.push(leadParagraph(place.plot_connection));
       if (place.quote) parts.push('<blockquote class="quote-block">' + Site.nl2br(place.quote) + "</blockquote>");
-      if (place.now_description) parts.push('<p><strong>🏛 Сейчас:</strong> ' + Site.nl2br(place.now_description) + "</p>");
+      if (place.now_description) parts.push('<p><strong>🏛️ Сейчас:</strong> ' + Site.nl2br(place.now_description) + "</p>");
     } else {
       if (place.history) parts.push(leadParagraph(place.history));
       if (place.fact) parts.push('<p><strong>✨ Интересный факт:</strong> ' + Site.nl2br(place.fact) + "</p>");

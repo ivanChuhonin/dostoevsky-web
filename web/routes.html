@@ -33,9 +33,12 @@
     return;
   }
   grid.innerHTML = routes.map(function (r) {
+    var n = r.points.length;
+    var difficultyClass = n < 10 ? "route-card-easy" : "route-card-hard";
+    var difficultyLabel = n < 10 ? "Лёгкий" : "Сложный";
     return (
-      '<a class="route-card" href="route.html?slug=' + encodeURIComponent(r.slug) + '" style="text-decoration:none;color:inherit">' +
-      '<div class="route-points-count">' + r.points.length + ' точек маршрута</div>' +
+      '<a class="route-card ' + difficultyClass + '" href="route.html?slug=' + encodeURIComponent(r.slug) + '" style="text-decoration:none;color:inherit">' +
+      '<div class="route-points-count">' + n + ' точек маршрута · ' + difficultyLabel + '</div>' +
       '<h3>' + Site.escapeHtml(r.name) + '</h3>' +
       '<p>' + Site.escapeHtml(r.description) + '</p>' +
       '</a>'

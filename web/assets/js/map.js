@@ -29,7 +29,7 @@
     el.style.textAlign = "center";
     el.style.padding = "16px";
     el.style.color = "var(--gray)";
-    el.innerHTML = "🗺 Карта недоступна.<br>" + reason;
+    el.innerHTML = "🗺️ Карта недоступна.<br>" + reason;
   }
 
   function keyConfigured() {

@@ -915,6 +915,26 @@ blockquote.quote-block {
   border-color: var(--gold);
 }
 
+/* Сложность маршрута по числу точек: <10 — лёгкий, >=10 — сложный.
+   Приглушённые тона, чтобы не спорить с кремово-бордовой палитрой сайта. */
+.route-card-easy {
+  border: 2px solid #6b8c5a;
+}
+
+.route-card-easy:hover {
+  border-color: #577249;
+  box-shadow: var(--shadow-card-hover);
+}
+
+.route-card-hard {
+  border: 2px solid #a8432f;
+}
+
+.route-card-hard:hover {
+  border-color: #8a3626;
+  box-shadow: var(--shadow-card-hover);
+}
+
 .route-card .route-points-count {
   color: var(--gold);
   font-size: 0.82rem;
@@ -1186,6 +1206,57 @@ blockquote.quote-block {
 
 .feedback-section h2 {
   margin-bottom: 8px;
+}
+
+.feedback-row {
+  display: flex;
+  gap: 56px;
+  align-items: flex-start;
+}
+
+.feedback-col {
+  flex: 1 1 360px;
+  min-width: 280px;
+}
+
+.sponsors-col {
+  flex: 0 1 240px;
+  min-width: 200px;
+}
+
+.sponsors-placeholder {
+  margin-top: 18px;
+  min-height: 160px;
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius);
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  color: var(--gray);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.sponsors-placeholder img {
+  max-width: 100%;
+  max-height: 120px;
+  width: auto;
+  height: auto;
+}
+
+@media (max-width: 860px) {
+  .feedback-row {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .sponsors-col {
+    flex-basis: auto;
+    width: 100%;
+  }
 }
 
 .feedback-form {

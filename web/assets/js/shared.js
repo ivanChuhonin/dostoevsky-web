@@ -9,7 +9,7 @@
   var CATEGORY_META = {
     life: { label: "Места из жизни", icon: "🏠", emptyIcon: "🏠" },
     works: { label: "Места из произведений", icon: "📚", emptyIcon: "📚" },
-    monuments: { label: "Музеи и памятники", icon: "🏛", emptyIcon: "🏛" },
+    monuments: { label: "Музеи и памятники", icon: "🏛️", emptyIcon: "🏛️" },
   };
 
   function escapeHtml(str) {
