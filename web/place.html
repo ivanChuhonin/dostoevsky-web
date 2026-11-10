@@ -21,7 +21,17 @@
 <script src="assets/data/site-data.js"></script>
 <script src="assets/js/shared.js"></script>
 <script src="assets/js/config.js"></script>
+<!-- 2GIS MapGL (ключ истёк, см. config.js) — на случай возврата:
 <script src="https://mapgl.2gis.com/api/js/v1"></script>
+-->
+<script>
+(function () {
+  var key = window.YANDEX_MAPS_API_KEY;
+  if (key && key.indexOf("ВСТАВЬТЕ") !== 0) {
+    document.write('<script src="https://api-maps.yandex.ru/2.1/?apikey=' + encodeURIComponent(key) + '&lang=ru_RU"><\/script>');
+  }
+})();
+</script>
 <script src="assets/js/map.js"></script>
 <script src="assets/js/place.js"></script>
 </body>
